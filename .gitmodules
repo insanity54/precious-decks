@@ -1,0 +1,3 @@
+[submodule "precious-data"]
+	path = precious-data
+	url = https://github.com/insanity54/precious-data
