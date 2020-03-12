@@ -8,4 +8,4 @@ A website for Precious Memories TCG/CCG players.
 
 ## Distant Future Plans
 
-  * Gameplay Simulator
+  * Gameplay simulator
