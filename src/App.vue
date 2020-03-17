@@ -2,7 +2,7 @@
   <div class="page-container">
     <md-app>
       <md-app-toolbar class="md-primary">
-        <span class="md-title">Precious Decks</span>
+        <span class="md-title">{{ $t('message.appTitle') }}</span>
       </md-app-toolbar>
 
       <md-app-drawer md-permanent="full">

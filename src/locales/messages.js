@@ -1,6 +1,8 @@
 const messages = {
   en: {
     message: {
+      appTitle: 'Precious Decks',
+      search: 'Search',
       welcome: 'Hello and welcome, thank you so much for being here!',
       intro0: 'Precious Decks is a website for Players and collectors of the Japanese card game, Precious Memories.',
       intro1: 'Browse the list of player-created decks on the Decks page.',
@@ -22,6 +24,8 @@ const messages = {
   },
   ja: {
     message: {
+      appTitle: 'プレシャス デッキ',
+      search: '探す',
       welcome: 'こんにちは、世界',
       intro0: '',
       intro1: '',

@@ -1,26 +1,30 @@
 <template>
   <div class="builder">
     <h1>{{ $t('message.builder') }}</h1>
-    <p>@TODO a list of all cards in sets</p>
-    <md-field>
-      <label for="sets">{{ $t('message.setsHeading') }}</label>
-      <md-select v-model="selectedSets" name="setsSelect" id="setsSelect" multiple @md-selected="clickSet(selectedSets)">
-        <!-- <md-option v-for="(set, i) in sets" :key="i" :value="set" @click="clickSet(set)">{{ $t(`message.sets.${set}`) }}</md-option> -->
-        <md-option v-for="(set, i) in sets" :key="i" :value="set">{{ set }}</md-option>
-      </md-select>
-    </md-field>
-    <p>{{ sets.length }} Sets</p>
-    <p>Selected Sets: {{ selectedSets }}</p>
-    <Card v-for="(card, i) in cards" :key="i"></Card>
+    <md-autocomplete v-model="selectedSet" :md-options="sets" v-on:md-selected="getSetData">
+      <label>{{ $t('message.search') }}</label>
+      <template slot="md-autocomplete-item" slot-scope="{ item, term }">
+        <md-highlight-text :md-term="term">{{ item }}</md-highlight-text>
+      </template>
+      <template slot="md-autocomplete-empty" slot-scope="{ term }">
+        No sets matching "{{ term }}" were found.
+      </template>
+    </md-autocomplete>
+    <CardList :cards="cards" />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import setAbbrIndex from '@/assets/precious-data/data/setAbbrIndex.json';
+import CardList from './CardList'
 export default {
   name: 'Builder',
+  components: {
+    CardList
+  },
   data: () => ({
+    selectedSet: '',
     selectedSets: [],
     cards: []
   }),
@@ -30,12 +34,13 @@ export default {
     }
   },
   methods: {
-    clickSet (selectedSets) {
-      console.log('fukko '+selectedSets)
+    getSetData () {
       return axios({
         method: 'GET',
-        url: `/api/v1/setAbbr/${selectedSets}`
-      });
+        url: `/api/v1/setAbbr/${this.selectedSet}`
+      }).then((res) => {
+        this.cards = res.data;
+      })
     }
   }
 }

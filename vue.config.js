@@ -5,6 +5,11 @@ module.exports = {
         target: 'http://localhost:3000',
         ws: false,
         changeOrigin: true
+      },
+      '/data': {
+        target: 'http://localhost:3000',
+        ws: false,
+        changeOrigin: true
       }
     }
   }

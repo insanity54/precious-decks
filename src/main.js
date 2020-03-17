@@ -11,7 +11,6 @@ import {
   MdDivider,
   MdLayout,
   MdSnackbar,
-  MdToolbar,
   MdIcon,
   MdField,
   MdCheckbox,
@@ -19,7 +18,13 @@ import {
   MdDrawer,
   MdList,
   MdAvatar,
-  MdEmptyState
+  MdEmptyState,
+  MdAutocomplete,
+  MdHighlightText,
+  MdToolbar,
+  MdRipple,
+  MdTable,
+  MdDialog,
 } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
@@ -40,7 +45,6 @@ Vue.use(MdApp)
 Vue.use(MdDivider)
 Vue.use(MdLayout)
 Vue.use(MdSnackbar)
-Vue.use(MdToolbar)
 Vue.use(MdIcon)
 Vue.use(MdField)
 Vue.use(MdCheckbox)
@@ -49,7 +53,13 @@ Vue.use(MdDrawer)
 Vue.use(MdList)
 Vue.use(MdAvatar)
 Vue.use(MdEmptyState)
-Vue.use(VueI18n);
+Vue.use(MdAutocomplete)
+Vue.use(MdHighlightText)
+Vue.use(MdToolbar)
+Vue.use(MdTable)
+Vue.use(MdRipple),
+Vue.use(MdDialog),
+Vue.use(VueI18n)
 
 const i18n = new VueI18n({
   locale: 'en',
